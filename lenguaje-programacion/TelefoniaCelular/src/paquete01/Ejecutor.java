@@ -12,9 +12,9 @@ public class Ejecutor {
 
         Enlace e = new Enlace();
         
-        System.out.println("========================================");
+        System.out.println("=========================================");
         System.out.println("Sistema de Gestio de Planes de Telefonia");
-        System.out.println("========================================\n");
+        System.out.println("=========================================");
 
         // Varaibles y Objetos Globales
 
@@ -30,16 +30,23 @@ public class Ejecutor {
         
         while (condicion) {
 
-            System.out.printf("%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n%s ",
+            System.out.printf("%s\n\n%s\n%s\n%s\n%s\n%s\n\n%s",
                     "--Menu de Opciones para Planes de Telefonia--",
                     "1) Ingresar un Plan Post Pago Megas",
                     "2) Ingresar un Plan Post Pago Minutos",
                     "3) Ingresar un Plan Post Pago Minutos Megas",
                     "4) Ingresar un Plan Post Pago Minutos Megas Econocmico",
                     "5) Salir del Programa",
-                    "Elija una opcion:");
-
+                    "Elija una opcion: ");
+            
             opcion = lm.nextInt();
+            System.out.println("============================================="
+                    + "====================");
+            
+            
+            // Limpiar Buffer
+            
+            lm.nextLine();
 
            switch (opcion) {
 
@@ -84,6 +91,8 @@ public class Ejecutor {
                     PlanPostPagoMegas pMegas = new PlanPostPagoMegas(p,c,megas,
                             costoGB,tarifa);
                     
+                    e.insertarPlanPostPagoMegas(pMegas);
+                    
                     break;
                     
                 case 2:
@@ -121,16 +130,18 @@ public class Ejecutor {
                             + "Nacionales: ");
                     costoMinN = lm.nextDouble();
                     
-                    System.out.print("Ingrese los Minutos Internacionales");
+                    System.out.print("Ingrese los Minutos Internacionales: ");
                     minutosI = lm.nextInt();
                     
                     System.out.print("Ingrese el Costo de los Minutos "
-                            + "Internacionales");
+                            + "Internacionales: ");
                     costoMinI = lm.nextDouble();
                     lm.nextLine();
                     
                     PlanPostPagoMinutos pMinutos = new PlanPostPagoMinutos(p2,
                             c2,minutosN,costoMinN,minutosI,costoMinI);
+                    
+                    e.insertarPlanPostPagoMinutos(pMinutos);
                     
                     break;
                     
@@ -178,6 +189,8 @@ public class Ejecutor {
                     PlanPostPagoMinutosMegas pMinutosMegas = 
                             new PlanPostPagoMinutosMegas(p3,c3,minutos,costoMin,
                                     megas,costoGB);
+                    
+                     e.insertarPlanPostPagoMinutosMegas(pMinutosMegas);
                     
                     break;
                     
@@ -230,11 +243,34 @@ public class Ejecutor {
                                     minutos,costoMin,megas,costoGB,
                                     descuento);
                     
+                    
+                    e.insertarPlanPostPagoMinutosMegasEconomico(pMinutosMegasEco);
+                    
                     break;  
                     
                 case 5:
                     
-                    System.err.println("Saliendo del Programa...");
+                    e.establecerlistaPlanes();
+                    
+                    for (PlanCelular pl : e.obtenerlistaPlanes() ) {
+                        
+                        pl.calcularPagoMensual();
+                        
+                    }
+                    
+                    System.out.println("\t\t-----[LISTA DE PLANES]-----");
+                    
+                    for (int i = 0; i < e.obtenerlistaPlanes().size(); i++) {
+            
+                        System.out.printf("%s\n", e.obtenerlistaPlanes().get(i));
+                    
+                    }
+                    
+                    
+                    System.out.println("======================================"
+                            + "==========================="
+                            + "\n\033[31mSaliendo del Programa...");
+                    
                     condicion = false;
 
                     break;
@@ -246,31 +282,6 @@ public class Ejecutor {
            }
            
         }
-                    
-        Propietario p = new Propietario("Luis miguel Morales Bautista", "ZAB000254", "Loja", "El Plateado");
-        
-        Celular c = new Celular("Samsung", "A21S", "0991526978");
-        
-        PlanPostPagoMegas plan1 = new PlanPostPagoMegas(p, c, 0, 0, 0);
-        
-        PlanPostPagoMinutos plan2 = new PlanPostPagoMinutos(p, c, 0, 0, 0, 0);
-        
-        PlanPostPagoMinutosMegas plan3 = new PlanPostPagoMinutosMegas(p, c, 0, 0, 0, 0);
-        
-        PlanPostPagoMinutosMegasEconomico plan4 = new PlanPostPagoMinutosMegasEconomico(p, c, 0, 0, 0, 0, 0);
-        
-        
-        e.insertarPlanPostPagoMegas(plan1);
-        e.insertarPlanPostPagoMinutos(plan2);
-        e.insertarPlanPostPagoMinutosMegas(plan3);
-        e.insertarPlanPostPagoMinutosMegasEconomico(plan4);
-        
-        e.establecerlistaPlanes();
-        
-       /*for (int i = 0; i < c.obtenerDataAuto().size(); i++) {
-            
-            System.out.printf("%s\n", c.obtenerDataAuto().get(i));
-        }*/
         
     }
     

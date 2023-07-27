@@ -62,20 +62,21 @@ public class PlanPostPagoMinutos extends PlanCelular {
     
     @Override
     public String toString() {
-        String cadena = String.format("======================================\n"
-                + "PLAN POST PAGO MINUTOS:\n"
+        String cadena = String.format("======================================="
+                + "==========================\n"
+                + "PLAN POST PAGO MINUTOS:\n\n"
                 + "\tNombre del Propietario: %s\n"
                 + "\tPasaporte del Propietario: %s\n"
                 + "\tCiudad del Propietario: %s\n"
-                + "\tBarrio del Propietario: %s\n"
+                + "\tBarrio del Propietario: %s\n\n"
                 + "\tMarca del Celular: %s\n"
                 + "\tModelo del Celular: %s\n"
-                + "\tCelular: %s\n"
+                + "\tCelular: %s\n\n"
                 + "\tMinutos Nacionales: %d\n"
                 + "\tCosto Minutos Nacionales: $%.2f\n"
                 + "\tMinutos Internacionales: %d\n"
                 + "\tCosto Minutos Internacionales: $%.2f\n"
-                + "\t---------------------------------------------\n"
+                + "\t---------------------------------------------------------\n"
                 + "\tPago Mensual: $%.2f\n",
                 propietario.obtenerNombreCompleto(),
                 propietario.obtenerPasaporte(),
