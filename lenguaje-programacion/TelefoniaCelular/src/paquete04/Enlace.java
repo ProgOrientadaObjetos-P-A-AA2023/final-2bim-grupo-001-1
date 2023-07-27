@@ -18,7 +18,7 @@ public class Enlace {
     public void establecerConexion() {  
 
         try {
-            String url = "jdbc:sqlite:bd/base01.bd";
+            String url = "jdbc:sqlite:bd/baseTelefonia.bd";
             conn = DriverManager.getConnection(url);
               
         } catch (SQLException e) {  
@@ -65,7 +65,7 @@ public class Enlace {
         }  
     }
         
-        public void insertarPlanPostPagoMinutos(PlanPostPagoMinutos p) {
+    public void insertarPlanPostPagoMinutos(PlanPostPagoMinutos p) {
 
         try {
 
@@ -202,7 +202,7 @@ public class Enlace {
             
             String data2 = "Select * from PlanPostPagoMinutos;";
             
-            ResultSet rs2 = statement.executeQuery(data);
+            ResultSet rs2 = statement.executeQuery(data2);
             while(rs.next()){
                 
                 Propietario p = new Propietario(rs2.getString("nombreCompleto"),
@@ -225,7 +225,7 @@ public class Enlace {
             
             String data3 = "Select * from PlanPostPagoMegas;";
             
-            ResultSet rs3 = statement.executeQuery(data);
+            ResultSet rs3 = statement.executeQuery(data3);
             while(rs.next()){
                 
                 Propietario p = new Propietario(rs3.getString("nombreCompleto"),
@@ -247,7 +247,7 @@ public class Enlace {
             
             String data4 = "Select * from PlanPostPagoMinutosMegas;";
             
-            ResultSet rs4 = statement.executeQuery(data);
+            ResultSet rs4 = statement.executeQuery(data4);
             while(rs.next()){
                 
                 Propietario p = new Propietario(rs4.getString("nombreCompleto"),
