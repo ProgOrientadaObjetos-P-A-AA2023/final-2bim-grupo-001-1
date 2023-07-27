@@ -1,4 +1,4 @@
-package paquete04;
+package paquete02;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import paquete02.*;
 import paquete03.*;
 import paquete04.*;
 
@@ -59,7 +58,8 @@ public class Enlace {
             obtenerConexion().close();
             
         } catch (SQLException e) {  
-             System.out.println("Exception: PlanPostPagoMinutosMegasEconomico");
+             System.out.println("Exception: insertarPlanPostPagoMinutosMegas"
+                     + "Economico");
              System.out.println(e.getMessage());  
              
         }  
@@ -96,7 +96,7 @@ public class Enlace {
             
         } catch (SQLException e) {
             
-            System.out.println("Exception: insertarCiudad");
+            System.out.println("Exception: insertarPlanPostPagoMinutos");
             System.out.println(e.getMessage());
 
         }
@@ -130,7 +130,7 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception: insertarCiudad");
+            System.out.println("Exception: insertarPlanPostPagoMegas");
             System.out.println(e.getMessage());
 
         }
@@ -163,7 +163,7 @@ public class Enlace {
             obtenerConexion().close();
             
         } catch (SQLException e) {  
-             System.out.println("Exception: PlanPostPagoMinutosMegas");
+             System.out.println("Exception: insertarPlanPostPagoMinutosMegas");
              System.out.println(e.getMessage());  
              
         }  
