@@ -1,5 +1,6 @@
 package paquete01;
 
+import java.util.Locale;
 import paquete02.Enlace;
 import java.util.Scanner;
 import paquete02.*;
@@ -23,6 +24,8 @@ public class Ejecutor {
         double costoMin, costoMinN, costoMinI, megas, costoGB, descuento, tarifa;
 
         Scanner lm = new Scanner(System.in);
+        lm.useLocale(Locale.US);
+        
 
         boolean condicion = true;
 
