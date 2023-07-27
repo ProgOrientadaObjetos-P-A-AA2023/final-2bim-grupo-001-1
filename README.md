@@ -1,6 +1,9 @@
 # Trabajo Final Segundo Bimestre
 
 * El siguiente trabajo se lo realizará de forma grupal (grupos de máximo dos personas).
+Integrantes:
+- Luis Morales
+- Santiago Riofrío
 
 ## Tema:
 
