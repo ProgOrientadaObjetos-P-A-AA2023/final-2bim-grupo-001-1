@@ -52,7 +52,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     public String toString() {
         String cadena = String.format("======================================="
                 + "==========================\n"
-                + "PLAN POST PAGO MINUTOS MEGAS ECONOMICO:\n\n"
+                + "PLAN POST PAGO MEGAS:\n\n"
                 + "\tNombre del Propietario: %s\n"
                 + "\tPasaporte del Propietario: %s\n"
                 + "\tCiudad del Propietario: %s\n"
